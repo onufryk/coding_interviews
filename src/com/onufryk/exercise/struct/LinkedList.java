@@ -3,6 +3,17 @@ package com.onufryk.exercise.struct;
 public class LinkedList {
 	protected Node root = null;
 	
+	public Node getRoot() {
+		return this.root;
+	}
+	
+	public void init(Node rootNode) throws Exception {
+		if (this.root != null) {
+			throw new Exception();
+		}
+		this.root = rootNode;
+	}
+	
 	public void add(Integer value) {
 		if (this.root == null) {
 			this.root = new Node(value);
