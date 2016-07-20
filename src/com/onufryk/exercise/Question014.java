@@ -18,22 +18,23 @@ public class Question014 {
 			this.lastSortedNode = this.root;
 			this.nextToBeSorted = this.lastSortedNode.getNext();
 			
+			int i = 0;
 			while (this.nextToBeSorted != null) {
+				i++;
+				
 				if (this.nextToBeSorted.getValue() < this.root.getValue()) {
 					this.lastSortedNode.setNext(this.nextToBeSorted.getNext());
 					this.nextToBeSorted.setNext(this.root);
 					this.root = this.nextToBeSorted;
 				} else {
-					Node indexNode = this.root;
-					
-					while (indexNode != this.lastSortedNode && indexNode.getNext().getValue() < this.nextToBeSorted.getValue()) {
-						indexNode = indexNode.getNext();
+					Node cursor = this.root;
+					while (cursor != this.lastSortedNode && cursor.getNext().getValue() < this.nextToBeSorted.getValue()) {
+						cursor = cursor.getNext();
 					}
-					
-					if (indexNode != this.nextToBeSorted) {
+					if (cursor != this.lastSortedNode) {
 						this.lastSortedNode.setNext(this.nextToBeSorted.getNext());
-						this.nextToBeSorted.setNext(indexNode.getNext());
-						indexNode.setNext(this.nextToBeSorted);
+						this.nextToBeSorted.setNext(cursor.getNext());
+						cursor.setNext(this.nextToBeSorted);
 					} else {
 						this.lastSortedNode = this.lastSortedNode.getNext();
 					}
