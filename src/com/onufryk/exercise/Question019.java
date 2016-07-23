@@ -18,6 +18,7 @@ public class Question019 {
 		
 		tree.traverseInOrder();
 		System.out.println(tree.isBinarySearchTree(Integer.MIN_VALUE, Integer.MAX_VALUE));
+		System.out.println(tree.isBinarySearchTree(Integer.MIN_VALUE));
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.onufryk.exercise.struct;
 
-public class ParentalBinaryTree<Item> extends BinaryTree<Item> {
+public class ParentalBinaryTree<Item extends Comparable<Item>> extends BinaryTree<Item> {
 	public ParentalBinaryTree(TreeNode<Item> root) {
 		super(root);
 	}

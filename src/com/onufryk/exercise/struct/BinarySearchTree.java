@@ -25,6 +25,17 @@ public class BinarySearchTree<Item extends Comparable<Item>> extends BinaryTree<
 		return this.isBinarySearchTree(node.left, min, node.value) && this.isBinarySearchTree(node.right, node.value, max);
 	}
 	
+	public Boolean isBinarySearchTree(Item min) {
+		return this.isBinarySearchTree(this.root, min);
+	}
+	
+	public Boolean isBinarySearchTree(TreeNode<Item> node, Item min) {
+		if (node == null) {
+			return true;
+		}
+		return this.isBinarySearchTree(node.left, min) && node.value.compareTo(min) == 1 && this.isBinarySearchTree(node.right, min = node.value);
+	}
+	
 
 	
 	public void add(Item value) {
