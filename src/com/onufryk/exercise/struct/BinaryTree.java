@@ -90,14 +90,19 @@ public class BinaryTree<Item extends Comparable<Item>> {
 	}
 	
 	public int sizeOfLargestTree() {
-		return this.sizeOfLargestTree(this.root, 0, 0, 0);
+		return this.sizeOfLargestTree(this.root);
 	}
 	
-	private Integer sizeOfLargestTree(TreeNode<Item> node, int min, int max, int largestSize) {
+	private Integer sizeOfLargestTree(TreeNode<Item> node) {
 		if (node == null) {
 			return 0;
 		}
-		return sizeOfLargestTree(node.left, min, max, largestSize) + sizeOfLargestTree(node.right, min, max, largestSize) + 1;
+		
+		Integer leftSubtreeSize = sizeOfLargestTree(node.left);
+		
+		Integer rightSubtreeSize = sizeOfLargestTree(node.right);
+		
+		return leftSubtreeSize + rightSubtreeSize + 1;
 		/*
 		if (node == null) {
 			largestSize = 0;
