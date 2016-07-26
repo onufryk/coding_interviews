@@ -4,6 +4,14 @@ public class Queue {
 	private Node first;
 	private Node last;
 	
+	public boolean isEmpty() {
+		return this.first == null;
+	}
+	
+	public boolean hasOneItem() {
+		return this.first == this.last;
+	}
+
 	public void enqueue(Integer value) {
 		Node lastNode = last;
 		
@@ -30,6 +38,19 @@ public class Queue {
 		}
 		
 		return firstValue;
+	}
+	
+	public String print() {
+		if (this.first == null) {
+			return null;
+		}
+		StringBuffer buffer = new StringBuffer();
+		Node cursor = this.first;
+		while (cursor != null) {
+			buffer.append(cursor.value);
+			cursor = cursor.next;
+		}
+		return buffer.toString();
 	}
 
 }

@@ -3,6 +3,10 @@ package com.onufryk.exercise.struct;
 public class Stack {
 	Node top = null;
 	
+	public Boolean isEmpty() {
+		return this.top == null;
+	}
+	
 	public void push(Integer value) {
 		if (top == null) {
 			top = new Node(value);
