@@ -3,10 +3,13 @@ package com.onufryk.exercise;
 import com.onufryk.exercise.struct.BinaryTree;
 import com.onufryk.exercise.struct.TreeNode;
 
-/**
- * @deprecated
- */
 public class Question020 {
+	public static class SearchContext {
+		public Integer min = Integer.MAX_VALUE;
+		public Integer max = Integer.MIN_VALUE;
+		public Integer size = 0;
+		public Boolean isBST = false;
+	}
 	
 	public static class CustomBinaryTree<Item extends Comparable<Item>> extends BinaryTree<Item> {
 
@@ -19,48 +22,35 @@ public class Question020 {
 		}
 		
 		public int sizeOfLargestTree() {
-			return this.sizeOfLargestTree(this.root);
+			SearchContext context = this.sizeOfLargestTree(this.root, new SearchContext());
+			return context.size;
 		}
 		
-		private Integer sizeOfLargestTree(TreeNode<Item> node) {
+		private SearchContext sizeOfLargestTree(TreeNode<Item> node, SearchContext context) {
 			if (node == null) {
-				return 0;
+				context.min = Integer.MAX_VALUE;
+				context.max = Integer.MIN_VALUE;
+				context.isBST = true;
+				context.size = 0;
+				return context;
 			}
 			
-			Integer leftSubtreeSize = sizeOfLargestTree(node.left);
+			SearchContext left = this.sizeOfLargestTree(node.left, new SearchContext());
+			SearchContext right = this.sizeOfLargestTree(node.right, new SearchContext());
 			
-			Integer rightSubtreeSize = sizeOfLargestTree(node.right);
-			
-			return leftSubtreeSize + rightSubtreeSize + 1;
-			/*
-			if (node == null) {
-				largestSize = 0;
-				min = Integer.MIN_VALUE;
-				max = Integer.MAX_VALUE;
-				return true;
-			}
-			int minLeft = Integer.MIN_VALUE, maxLeft = Integer.MAX_VALUE, leftSize = 0;
-			boolean left = this.sizeOfLargestTree(node.left, minLeft, maxLeft, leftSize);
-			
-			int minRight = Integer.MIN_VALUE, maxRight = Integer.MAX_VALUE, rightSize = 0;
-			boolean right = this.sizeOfLargestTree(node.right, minRight, maxRight, rightSize);
-			
-			boolean overall = false;
-			if (left && right && node.value.compareTo(maxLeft) == -1 && node.value.compareTo(minRight) == 1) {
-				largestSize = leftSize + rightSize + 1;
-				overall = true;
-				
-				min = (node.value < minLeft ) ? node.value : minLeft;
-				max = (node.value > maxRight) ? node.value : maxRight;
+			context.isBST = false;
+			if (left.isBST && right.isBST && node.value.compareTo((Item)left.max) != -1 && node.value.compareTo((Item)right.min) != 1) {
+				context.size = left.size + right.size + 1;
+				context.isBST = true;
+				context.min = (node.value.compareTo((Item)left.min) == -1) ? (Integer)node.value : left.min;
+				context.max = (node.value.compareTo((Item)right.max) == 1) ? (Integer)node.value : right.max;
 			} else {
-				largestSize = (leftSize > rightSize) ? leftSize : rightSize;
+				context.size = (left.size > right.size) ? left.size : right.size;
 			}
+			return context;
 			
-			return overall;
-			*/
 		}
 	}
-	
 	
 	public static void main(String[] args) {
 		TreeNode<Integer> nodeA = new TreeNode<Integer>(12);
@@ -69,7 +59,6 @@ public class Question020 {
 		TreeNode<Integer> nodeD = new TreeNode<Integer>(5);
 		TreeNode<Integer> nodeE = new TreeNode<Integer>(8);
 		TreeNode<Integer> nodeF = new TreeNode<Integer>(10);
-		
 		nodeC.right = nodeF;
 		nodeC.left = nodeE;
 		nodeB.left = nodeD;
