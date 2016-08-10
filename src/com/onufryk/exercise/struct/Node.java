@@ -8,6 +8,11 @@ public class Node {
 		this.value = value;
 	}
 	
+	public Node(Integer value, Node link) {
+		this.value = value;
+		this.next = link;
+	}
+	
 	public void setNext(Node link) {
 		this.next = link;
 	}
