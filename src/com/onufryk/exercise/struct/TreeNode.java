@@ -13,6 +13,12 @@ public class TreeNode<Item> {
 	public TreeNode(Item value) {
 		this.value = value;
 	}
+	
+	public TreeNode(Item value, TreeNode<Item> left, TreeNode<Item> right) {
+		this.value = value;
+		this.left = left;
+		this.right = right;
+	}
 
 	public String toString() {
 		if (this.value != null) {
