@@ -10,6 +10,10 @@ public class BinaryTree<Item extends Comparable<Item>> {
 		this.root = root;
 	}
 	
+	public TreeNode<Item> getRoot() {
+		return this.root;
+	}
+	
 	public void traversePreOrder() {
 		this.traversePreOrder(this.root);
 		System.out.println();
