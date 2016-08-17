@@ -1,7 +1,7 @@
 package com.onufryk.exercise.struct;
 
 public class Stack {
-	Node top = null;
+	public Node top = null;
 	
 	public Boolean isEmpty() {
 		return this.top == null;
