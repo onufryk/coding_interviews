@@ -6,9 +6,7 @@ public class TreeNode<Item> {
 	public TreeNode<Item> left = null;
 	public TreeNode<Item> right = null;
 	
-	public TreeNode() {
-		
-	}
+	public TreeNode() {}
 	
 	public TreeNode(Item value) {
 		this.value = value;
@@ -26,6 +24,4 @@ public class TreeNode<Item> {
 		}
 		return super.toString();
 	}
-	
-	
 }

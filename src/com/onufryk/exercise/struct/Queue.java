@@ -48,6 +48,7 @@ public class Queue {
 		Node cursor = this.first;
 		while (cursor != null) {
 			buffer.append(cursor.value);
+			buffer.append(' ');
 			cursor = cursor.next;
 		}
 		return buffer.toString();

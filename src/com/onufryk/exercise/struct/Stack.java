@@ -30,6 +30,13 @@ public class Stack {
 		return first;
 		
 	}
+	
+	public Node top() {
+		if (top == null) {
+			return null;
+		}
+		return this.top;
+	}
 
 	public void print() {
 		Node current = this.top;
