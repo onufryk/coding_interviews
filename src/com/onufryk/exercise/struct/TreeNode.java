@@ -5,6 +5,8 @@ public class TreeNode<Item> {
 	public TreeNode<Item> parent = null;
 	public TreeNode<Item> left = null;
 	public TreeNode<Item> right = null;
+	public TreeNode<Item> previous = null;
+	public TreeNode<Item> next = null;
 	
 	public TreeNode() {}
 	
