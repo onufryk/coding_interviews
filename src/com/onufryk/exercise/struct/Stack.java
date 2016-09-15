@@ -2,12 +2,14 @@ package com.onufryk.exercise.struct;
 
 public class Stack {
 	public Node top = null;
+	private Integer size = 0;
 	
 	public Boolean isEmpty() {
 		return this.top == null;
 	}
 	
 	public void push(Integer value) {
+		this.size++;
 		if (top == null) {
 			top = new Node(value);
 			return;
@@ -27,8 +29,9 @@ public class Stack {
 		
 		top = top.next;
 		
-		return first;
+		this.size--;
 		
+		return first;
 	}
 	
 	public Node top() {
@@ -36,6 +39,10 @@ public class Stack {
 			return null;
 		}
 		return this.top;
+	}
+	
+	public Integer size() {
+		return this.size;
 	}
 
 	public void print() {

@@ -6,9 +6,6 @@ import com.onufryk.exercise.struct.TreeNode;
 public class Question064 {
 
 	public static class LinkedListBST<T extends Comparable<T>> extends BinarySearchTree<T> {
-		public static final boolean LEFT = true;
-		public static final boolean RIGHT = false;
-
 		public TreeNode<T> head = null;
 		public TreeNode<T> tail = null;
 		public TreeNode<T> lastNodeInTheList = null;
