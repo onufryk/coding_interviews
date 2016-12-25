@@ -33,6 +33,7 @@ public class BinaryTree<Item extends Comparable<Item>> {
 		this.traverseInOrder(this.root);
 		System.out.println();
 	}
+
 	public void traverseInOrder(TreeNode<Item> node) {
 		if (node == null) {
 			return;
