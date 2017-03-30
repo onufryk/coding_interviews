@@ -10,14 +10,14 @@ public class Question044 {
 			if (this.root == null) {
 				return;
 			}
-			Node previous = null;
-			Node cursor = this.root;
+			Node<Integer> previous = null;
+			Node<Integer> cursor = this.root;
 			while (cursor != null) {
-				Node next = cursor.getNext();
+				Node<Integer> next = cursor.getNext();
 				
 				if (next != null && cursor.getValue() == next.getValue()) {
 					Integer duplicatedValue = cursor.getValue();
-					Node deleteMe = cursor;
+					Node<Integer> deleteMe = cursor;
 					while (deleteMe != null && deleteMe.getValue() == duplicatedValue) {
 						next = deleteMe.getNext();
 						deleteMe = null;
@@ -41,7 +41,8 @@ public class Question044 {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Node root = new Node(1, new Node(2, new Node(3, new Node (3, new Node(4, new Node(4, new Node (5)))))));
+		Node<Integer> root = new Node<Integer>(1, new Node<Integer>(2,
+				new Node<Integer>(3, new Node<Integer>(3, new Node<Integer>(4, new Node<Integer>(4, new Node<Integer>(5)))))));
 		SingleEntryList list = new SingleEntryList();
 		list.init(root);
 		

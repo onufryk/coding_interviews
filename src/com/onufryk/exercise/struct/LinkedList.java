@@ -1,13 +1,13 @@
 package com.onufryk.exercise.struct;
 
 public class LinkedList {
-	protected Node root = null;
+	protected Node<Integer> root = null;
 	
-	public Node getRoot() {
+	public Node<Integer> getRoot() {
 		return this.root;
 	}
 	
-	public void init(Node rootNode) throws Exception {
+	public void init(Node<Integer> rootNode) throws Exception {
 		if (this.root != null) {
 			throw new Exception();
 		}
@@ -16,18 +16,18 @@ public class LinkedList {
 	
 	public void add(Integer value) {
 		if (this.root == null) {
-			this.root = new Node(value);
+			this.root = new Node<Integer>(value);
 			return;
 		}
-		Node current = this.root;
+		Node<Integer> current = this.root;
 		while (current.next != null) {
 			current = current.next;
 		}
-		current.next = new Node(value);
+		current.next = new Node<Integer>(value);
 	}
 
 	public void print() {
-		Node current = this.root;
+		Node<Integer> current = this.root;
 		StringBuffer output = new StringBuffer();
 		while (current != null) {
 			output.append(current.value);
@@ -37,7 +37,7 @@ public class LinkedList {
 		System.out.println(output);
 	}
 	
-	private void printNext(Node node) {
+	private void printNext(Node<Integer> node) {
 		if (node != null) {
 			printNext(node.next);
 			System.out.print(node.value);

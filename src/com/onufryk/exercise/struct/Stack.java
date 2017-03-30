@@ -1,7 +1,7 @@
 package com.onufryk.exercise.struct;
 
 public class Stack {
-	public Node top = null;
+	public Node<Integer> top = null;
 	private Integer size = 0;
 	
 	public Boolean isEmpty() {
@@ -11,21 +11,21 @@ public class Stack {
 	public void push(Integer value) {
 		this.size++;
 		if (top == null) {
-			top = new Node(value);
+			top = new Node<Integer>(value);
 			return;
 		}
-		Node first = top;
+		Node<Integer> first = top;
 		
-		top = new Node(value);
+		top = new Node<Integer>(value);
 		top.setNext(first);
 	}
 	
-	public Node pop() {
+	public Node<Integer> pop() {
 		if (top == null) {
 			return null;
 		}
 		
-		Node first = top;
+		Node<Integer> first = top;
 		
 		top = top.next;
 		
@@ -34,7 +34,7 @@ public class Stack {
 		return first;
 	}
 	
-	public Node top() {
+	public Node<Integer> top() {
 		if (top == null) {
 			return null;
 		}
@@ -46,7 +46,7 @@ public class Stack {
 	}
 
 	public void print() {
-		Node current = this.top;
+		Node<Integer> current = this.top;
 		StringBuffer output = new StringBuffer();
 		while (current != null) {
 			output.append(current.value);

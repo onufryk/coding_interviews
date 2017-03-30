@@ -1,31 +1,31 @@
 package com.onufryk.exercise.struct;
 
-public class Node {
-	Integer value = null;
-	Node next = null;
+public class Node<Item> {
+	Item value = null;
+	Node<Item> next = null;
 	
-	public Node(Integer value) {
+	public Node(Item value) {
 		this.value = value;
 	}
 	
-	public Node(Integer value, Node link) {
+	public Node(Item value, Node<Item> link) {
 		this.value = value;
 		this.next = link;
 	}
 	
-	public void setNext(Node link) {
+	public void setNext(Node<Item> link) {
 		this.next = link;
 	}
 	
-	public Node getNext() {
+	public Node<Item> getNext() {
 		return this.next;
 	}
 	
-	public Integer getValue() {
+	public Item getValue() {
 		return this.value;
 	}
 	
-	public void setValue(Integer value) {
+	public void setValue(Item value) {
 		this.value = value;
 	}
 

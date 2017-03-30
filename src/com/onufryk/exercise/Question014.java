@@ -8,8 +8,8 @@ import com.onufryk.exercise.struct.LinkedList;
 public class Question014 {
 	
 	public static class SortableLinkedList extends LinkedList {
-		private Node lastSortedNode;
-		private Node nextToBeSorted;
+		private Node<Integer> lastSortedNode;
+		private Node<Integer> nextToBeSorted;
 		
 		public void sort() {
 			if (this.root == null || this.root.getNext() == null) {
@@ -18,16 +18,14 @@ public class Question014 {
 			this.lastSortedNode = this.root;
 			this.nextToBeSorted = this.lastSortedNode.getNext();
 			
-			int i = 0;
 			while (this.nextToBeSorted != null) {
-				i++;
 				
 				if (this.nextToBeSorted.getValue() < this.root.getValue()) {
 					this.lastSortedNode.setNext(this.nextToBeSorted.getNext());
 					this.nextToBeSorted.setNext(this.root);
 					this.root = this.nextToBeSorted;
 				} else {
-					Node cursor = this.root;
+					Node<Integer> cursor = this.root;
 					while (cursor != this.lastSortedNode && cursor.getNext().getValue() < this.nextToBeSorted.getValue()) {
 						cursor = cursor.getNext();
 					}

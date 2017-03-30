@@ -6,13 +6,13 @@ import com.onufryk.exercise.struct.LinkedList;
 
 public class Question015 {
 	
-	public static Node merge(Node cursor1, Node cursor2) {
+	public static Node<Integer> merge(Node<Integer> cursor1, Node<Integer> cursor2) {
 		if (cursor1 == null) {
 			return cursor2;
 		} else if (cursor2 == null) {
 			return cursor1;
 		}
-		Node cursor = null;
+		Node<Integer> cursor = null;
 		
 		if (cursor1.getValue() < cursor2.getValue()) {
 			cursor = cursor1;
@@ -47,8 +47,8 @@ public class Question015 {
 		list1.print();
 		list2.print();
 
-		Node cursor1 = list1.getRoot();
-		Node cursor2 = list2.getRoot();
+		Node<Integer> cursor1 = list1.getRoot();
+		Node<Integer> cursor2 = list2.getRoot();
 
 		while (cursor1 != null || cursor2 != null) {
 			
@@ -66,7 +66,7 @@ public class Question015 {
 
 		list3.print();
 		
-		Node sorted = merge(list1.getRoot(), list2.getRoot());
+		Node<Integer> sorted = merge(list1.getRoot(), list2.getRoot());
 		LinkedList list4 = new LinkedList();
 		try {
 			list4.init(sorted);

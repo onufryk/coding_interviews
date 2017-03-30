@@ -1,8 +1,8 @@
 package com.onufryk.exercise.struct;
 
 public class Queue {
-	private Node first;
-	private Node last;
+	private Node<Integer> first;
+	private Node<Integer> last;
 	
 	public boolean isEmpty() {
 		return this.first == null;
@@ -13,9 +13,9 @@ public class Queue {
 	}
 
 	public void enqueue(Integer value) {
-		Node lastNode = last;
+		Node<Integer> lastNode = last;
 		
-		Node newNode = new Node(value);
+		Node<Integer> newNode = new Node<Integer>(value);
 		this.last = newNode;
 		
 		if (this.first == null) {
@@ -45,7 +45,7 @@ public class Queue {
 			return null;
 		}
 		StringBuffer buffer = new StringBuffer();
-		Node cursor = this.first;
+		Node<Integer> cursor = this.first;
 		while (cursor != null) {
 			buffer.append(cursor.value);
 			buffer.append(' ');
