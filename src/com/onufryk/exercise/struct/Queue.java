@@ -1,8 +1,8 @@
 package com.onufryk.exercise.struct;
 
 public class Queue {
-	private Node<Integer> first;
-	private Node<Integer> last;
+	protected Node<Integer> first;
+	protected Node<Integer> last;
 	
 	public boolean isEmpty() {
 		return this.first == null;
@@ -37,6 +37,14 @@ public class Queue {
 			this.last = null;
 		}
 		
+		return firstValue;
+	}
+	
+	public Integer peek() {
+		if (this.first == null) {
+			return null;
+		}
+		Integer firstValue = first.value;
 		return firstValue;
 	}
 	
